@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "TasksNotCompletedTomorrow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TasksNotCompletedTomorrow</h2>
+
+@{ 
+    var Nope = DateTime.Today.AddDays(1);
+    ToDoList1Entities db = new ToDoList1Entities();
+
+    var NotComp = from g in db.Tasks
+                  where g.DueDate == Nope &&
+                  g.CompletionDate == null
+                  select new
+                  {
+                      taskname = g.TaskName,
+                      taskdescription = g.Description,
+                      taskduedate = g.DueDate,
+                      taskcompdate = g.CompletionDate
+                  };
+}
+<table style="border: 2px solid Black">
+    <tr>
+        <th style="border: 2px solid Black">Task Name</th>
+        <th style="border: 2px solid Black">Description</th>
+        <th style="border: 2px solid Black">Task Due Date</th>
+        <th style="border: 2px solid Black">Task Completion Date</th>
+    </tr>
+    @foreach (var Task in NotComp)
+    {
+        <tr style="border: 2px solid Blue">
+            <td style="border: 2px solid Black">@Task.taskname</td>
+            <td style="border: 2px solid Black">@Task.taskdescription)</td>
+            <td style="border: 2px solid Black">@string.Format("{0:M/d/yyyy}", Task.taskduedate)</td>
+            <td style="border: 2px solid Black">@string.Format("{0:M/d/yyyy}", Task.taskcompdate)</td>
+        </tr>
+
+    }
+</table>

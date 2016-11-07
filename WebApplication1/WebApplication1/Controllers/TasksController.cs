@@ -128,5 +128,25 @@ namespace WebApplication1.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult AllTasks()
+        {
+            return View();
+        }
+        public ActionResult TasksCompletedToday()
+        {
+            return View();
+        }
+        public ActionResult TasksNotCompletedToday()
+        {
+            return View();
+        }
+        public ActionResult TomorrowsCompTasks()
+        {
+            return View();
+        }
+        public ActionResult TasksNotCompletedTomorrow()
+        {
+            return View();
+        }
     }
 }
