@@ -1,16 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "TasksCompletedToday";
+    ViewBag.Title = "ViewAllTasksToday";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>TasksCompletedToday</h2>
-@{
-    ToDoList1Entities db = new ToDoList1Entities();
+<h2>ViewAllTasksToday</h2>
+@{ 
+ToDoList1Entities db = new ToDoList1Entities();
 
     var tasks = from m in db.Tasks
-                where m.DueDate == DateTime.Today &&
-                m.CompletionDate != null
+                where m.DueDate == DateTime.Today
                 select new
                 {
                     taskname = m.TaskName,
@@ -26,16 +25,16 @@
         <th style="border: 2px solid black">description</th>
         <th style="border: 2px solid black">Due Date</th>
         <th style="border: 2px solid black">task completion date</th>
-        </tr>
-    
-@foreach (var task in tasks)
-    { 
-    <tr style="border: 2px solid blue">
-        <td style="border: 2px solid black">@task.taskname</td>
-        <td style="border: 2px solid black">@task.taskdescription)</td>
-        <td style="border: 2px solid Black">@string.Format("{0:M/d/yyyy}", task.taskduedate)</td>
-        <td style="border: 2px solid black">@string.Format("{0:m/d/yyyy}", task.taskcompletion)</td>
     </tr>
 
-}
+    @foreach (var task in tasks)
+    {
+        <tr style="border: 2px solid blue">
+            <td style="border: 2px solid black">@task.taskname</td>
+            <td style="border: 2px solid black">@task.taskdescription)</td>
+            <td style="border: 2px solid Black">@string.Format("{0:M/d/yyyy}", task.taskduedate)</td>
+            <td style="border: 2px solid black">@string.Format("{0:m/d/yyyy}", task.taskcompletion)</td>
+        </tr>
+
+    }
 </table>

@@ -148,5 +148,13 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public ActionResult ViewAllTasksToday()
+        {
+            return View();
+        }
+        public ActionResult ViewAllTasksTomorrow()
+        {
+            return View();
+        }
     }
 }

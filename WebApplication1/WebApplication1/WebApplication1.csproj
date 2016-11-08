@@ -262,6 +262,8 @@
     <Content Include="Views\Tasks\TasksNotCompletedToday.cshtml" />
     <Content Include="Views\Tasks\TomorrowsCompTasks.cshtml" />
     <Content Include="Views\Tasks\TasksNotCompletedTomorrow.cshtml" />
+    <Content Include="Views\Tasks\ViewAllTasksToday.cshtml" />
+    <Content Include="Views\Tasks\ViewAllTasksTomorrow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
